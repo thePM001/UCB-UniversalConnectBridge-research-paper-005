@@ -9,7 +9,7 @@ This is a reference implementation of the Universal Connect Bridge (UCB) as defi
 - Reversible Extend-Write primitive with diff records
 - Real LLM integration with Claude Sonnet 4.6 via OpenRouter using strict structured outputs
 
-## Why Elixir?
+## Why Elixir ?
 
 Elixir’s process model, immutability, and supervision trees are an excellent fit for the sovereign, isolated, and reversible nature of the UCB core.
 
