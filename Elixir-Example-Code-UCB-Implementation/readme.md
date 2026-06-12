@@ -1,21 +1,21 @@
-
-## Elixir Reference Implementation of UCB
+# Elixir Reference Implementation of UCB
 
 This is a reference implementation of the Universal Connect Bridge (UCB) as defined in the accompanying research paper.
-Architecture
 
-## Full UCB concentric security model implemented in Elixir
+## Architecture
 
+- Full UCB concentric security model implemented in Elixir
 - Hyper-dimensional Computing (Vector Symbolic Architecture) core
 - Reversible Extend-Write primitive with diff records
 - Real LLM integration with Claude Sonnet 4.6 via OpenRouter using strict structured outputs
 
-## Why Elixir ?
-Elixir’s process model, immutability and supervision trees are an excellent fit for the sovereign, isolated and reversible nature of the UCB core.
-Quick Start
+## Why Elixir?
 
-Bash
+Elixir’s process model, immutability, and supervision trees are an excellent fit for the sovereign, isolated, and reversible nature of the UCB core.
 
+## Quick Start
+
+```bash
 # Create the project scaffolding
 mix new ucb
 cd ucb
@@ -29,9 +29,11 @@ source .env
 
 # Run the interactive demo
 iex -S mix -e "UCBExample.run()"
+```
 
-### Project Structure
+## Project Structure
 
+```text
 ucb/
 ├── mix.exs
 ├── config/
@@ -46,15 +48,15 @@ ucb/
 │   │   ├── bridge.ex
 │   │   └── llm.ex
 │   └── ucb_example.ex
+```
 
-### Complete Implementation Files
+## Complete Implementation Files
 
 Below is the complete, runnable code to replicate the UCB example. Save these files into the directory structure outlined above.
 
 ### 1. Project Configuration
 
-
-Elixir
+```elixir
 # mix.exs
 defmodule UCB.MixProject do
   use Mix.Project
@@ -84,19 +86,19 @@ defmodule UCB.MixProject do
     ]
   end
 end
+```
 
-
-Elixir
+```elixir
 # config/config.exs
 import Config
 
 # Standard Elixir configuration.
 # Environment variables like OPENROUTER_API_KEY are evaluated at runtime.
+```
 
 ### 2. Core UCB Modules
 
-
-Elixir
+```elixir
 # lib/ucb/hypervector.ex
 defmodule UCB.Hypervector do
   @moduledoc """
@@ -110,8 +112,9 @@ defmodule UCB.Hypervector do
     %__MODULE__{data: data}
   end
 end
+```
 
-### Elixir
+```elixir
 # lib/ucb/translator.ex
 defmodule UCB.Translator do
   @moduledoc """
@@ -125,8 +128,9 @@ defmodule UCB.Translator do
     Hypervector.new(1000)
   end
 end
+```
 
-### Elixir
+```elixir
 # lib/ucb/validator.ex
 defmodule UCB.Validator do
   @moduledoc """
@@ -140,8 +144,9 @@ defmodule UCB.Validator do
 
   def validate(_), do: {:error, :malformed_fact_structure}
 end
+```
 
-### Elixir
+```elixir
 # lib/ucb/extend_write.ex
 defmodule UCB.ExtendWrite do
   @moduledoc """
@@ -164,8 +169,9 @@ defmodule UCB.ExtendWrite do
     {:ok, :integrated, diff, updated_hv}
   end
 end
+```
 
-### Elixir
+```elixir
 # lib/ucb/core.ex
 defmodule UCB.Core do
   @moduledoc """
@@ -234,10 +240,11 @@ defmodule UCB.Core do
     }
   end
 end
+```
 
 ### 3. Integration & Bridge Modules
 
-Elixir
+```elixir
 # lib/ucb/bridge.ex
 defmodule UCB.Bridge do
   @moduledoc """
@@ -275,8 +282,9 @@ defmodule UCB.Bridge do
     {:ok, response}
   end
 end
+```
 
-### Elixir
+```elixir
 # lib/ucb/llm.ex
 defmodule UCB.LLM do
   @moduledoc """
@@ -340,10 +348,11 @@ defmodule UCB.LLM do
     }
   end
 end
+```
 
 ### 4. Complete Demo Code
 
-Elixir
+```elixir
 # lib/ucb_example.ex
 defmodule UCBExample do
   alias UCB.{Bridge, LLM, Core}
@@ -437,3 +446,4 @@ defmodule UCBExample do
     IO.puts("")
   end
 end
+```
