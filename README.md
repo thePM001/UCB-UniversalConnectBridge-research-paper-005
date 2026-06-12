@@ -1,6 +1,6 @@
 # UniversalConnect Bridge: A Formal Specification for Bi-directional Integration Between Transformer and State-Space Models and Structured AI/ASI Systems
 
-### Please check repository for PDF version with correct notations.
+### Please check the repository for the PDF version with correct notations.
 
 ## Author: the.PM 
 ## Iberian Peninsula Human Civilization Continuation Project / New Lisbon Agency (NLA) // Correspondence: support@newlisbon.agency 
